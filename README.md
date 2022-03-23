@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img alt="LOGO" src="docs/logo.png" height="80" />
+</div>
 
-## Getting Started
+<br>
+<p align="center">
+Rdnsan Porfolio
+</p>
+<p align="center">
+crafted with <span style="color: #8b0000;">&hearts;</span> by <a href="#">Ridwan Ikhsan</a>.
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/version-0.1.0-yellowgreen" alt="version 0.1.0"/>
+  <img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="license MIT"/>
+  <img src="https://img.shields.io/badge/author-Ridwan%20Ikhsan-lightseagreen" alt="author Ridwan Ikhsan"/>
+</p>
 
-First, run the development server:
+> Ridwan Portfolio built on NextJS!
 
-```bash
-npm run dev
-# or
-yarn dev
+## Built With
+
+This website is built with <span style="color: #8b0000;">&hearts;</span> on [NextJS](https://nextjs.org/), statically typed in [TypeScript](https://www.typescriptlang.org/) following the best practises in the market.
+
+## Installation 🔧
+
+Install dependencies
+
+```
+$ yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Building
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+$ yarn build
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Running Server 🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Start the development server
 
-## Learn More
+```
+$ yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+$ yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Other Commands 🚧
 
-## Deploy on Vercel
+Use ESLint to check all files
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+$ yarn lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License 📜
+
+`Portfolio` is available under the MIT license. See the LICENSE file for more info.
