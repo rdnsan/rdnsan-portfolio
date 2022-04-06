@@ -18,6 +18,7 @@
     "paths": {
       "@components": ["src/components/index.tsx"],
       "@config": ["src/config/index.tsx"],
+      "@content": ["src/content/index.ts"],
       "@hooks": ["src/hooks/index.tsx"],
       "@pages/*": ["src/pages/*"],
       "@styles": ["src/styles/index.tsx"],

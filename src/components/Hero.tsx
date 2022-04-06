@@ -19,6 +19,7 @@ const StyledHero = styled.div`
     font-size: 55px;
     font-weight: 700;
     color: var(--slate);
+    margin-bottom: 24px;
   }
   p {
     font-size: 20px;
@@ -121,11 +122,11 @@ export default function Hero() {
             </TextLine>
             <h1>Ridwan Nurul Ikhsan.</h1>
             <h2>I build things for the web.</h2>
-            <p>
+            {/* <p>
               I’m a full-stack developer based in Bandung with a passion for
               building digital service/stuffs he wants. I’ve enjoyed JavaScript
               and make it the main language in creating a project.
-            </p>
+            </p> */}
             <div>
               <Button primary>Know More</Button>
               <Button primary={false}>Download Resume</Button>

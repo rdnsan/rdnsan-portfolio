@@ -4,15 +4,16 @@ import { IconCodepen, IconGithub, IconLinkedin } from './icons';
 
 const StyledSection = styled.section`
   width: 100%;
-
-  .wrapper {
-    text-align: center;
-  }
+  padding-bottom: 0;
 
   h2 {
     font-size: 40px;
     font-weight: 600;
     margin: 16px 0;
+    @media screen and (max-width: 375px) {
+      font-size: 36px;
+      margin: 10px 0;
+    }
   }
 
   p {
@@ -21,93 +22,20 @@ const StyledSection = styled.section`
     margin-bottom: 16px;
   }
 
-  .left {
-    width: 40px;
-    position: fixed;
-    bottom: 0;
-    left: 40px;
-    right: auto;
-    /* color: var(--navy); */
-    z-index: 10;
-    .social-media {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
-      position: relative;
-      &::after {
-        content: '';
-        display: block;
-        width: 1px;
-        height: 90px;
-        /* margin: 0px auto; */
-        margin-top: 20px;
-        background-color: var(--navy);
-      }
-      li {
-        padding: 10px;
-        a {
-          color: inherit;
-          padding: 10px;
-          transition: var(--transition);
-          &:hover,
-          &:focus {
-            color: var(--blue);
-            transform: translateY(-3px);
-          }
-
-          svg {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
+  footer {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
   }
+`;
 
-  .right {
-    width: 40px;
-    position: fixed;
-    bottom: 0;
-    left: auto;
-    right: 40px;
-    z-index: 10;
-    /* color: var(--navy); */
-
-    .email {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      &::after {
-        content: '';
-        display: block;
-        width: 1px;
-        height: 90px;
-        margin: 0 auto;
-        background-color: var(--navy);
-      }
-
-      a {
-        margin: 20px auto;
-        padding: 10px;
-        font-family: var(--font-sans);
-        font-size: var(--fs-xxs);
-        line-height: var(--fs-lg);
-        letter-spacing: 0.1em;
-        writing-mode: vertical-rl;
-        text-decoration: none;
-        color: inherit;
-        transition: var(--transition);
-        &:hover {
-          color: var(--blue);
-          transform: translateY(-3px);
-        }
-      }
-    }
-  }
+const Wrapper = styled.div`
+  height: 65vh;
+  position: relative;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 `;
 
 const Button = styled.button`
@@ -119,7 +47,6 @@ const Button = styled.button`
   color: var(--white);
   padding: 16px 34px;
   margin-top: 10px;
-  /* margin-right: 10px; */
   border: 2px solid transparent;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -136,11 +63,95 @@ const Button = styled.button`
   }
 `;
 
+const Widget = {
+  Left: styled.div`
+    width: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    .social-media {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      /* position: relative; */
+      &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin-top: 10px;
+        background-color: var(--navy);
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        padding: 10px;
+        transition: var(--transition);
+        &:hover,
+        &:focus {
+          color: var(--blue);
+          transform: translateY(-3px);
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  `,
+  Right: styled.div`
+    width: 40px;
+    position: absolute;
+    bottom: 0;
+    /* left: auto; */
+    /* right: 40px; */
+    right: 0;
+    z-index: 10;
+
+    .email {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* margin-top: 90px; */
+      &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin: 0 auto;
+        background-color: var(--navy);
+      }
+
+      a {
+        margin: 20px auto;
+        font-size: var(--fs-xxs);
+        letter-spacing: 0.1em;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+        &:hover {
+          color: var(--blue);
+          transform: rotate(180deg) translateY(5px);
+        }
+      }
+    }
+  `,
+};
+
 export default function Contact() {
   return (
-    <StyledSection>
+    <StyledSection id='contact'>
       <Container>
-        <div className='wrapper'>
+        <Wrapper>
           <TextLine position='center'>
             <span>Contact</span>
           </TextLine>
@@ -150,12 +161,12 @@ export default function Contact() {
             to get back to you!
           </p>
           <Button>Say Hello</Button>
-          <div className='left'>
+          <Widget.Left>
             <ul className='social-media'>
               <li>
                 <a
                   href='#'
-                  aria-label='GitHub'
+                  aria-label='Codepen'
                   target='_blank'
                   rel='noreferrer'
                 >
@@ -175,7 +186,7 @@ export default function Contact() {
               <li>
                 <a
                   href='#'
-                  aria-label='GitHub'
+                  aria-label='LinkedIn'
                   target='_blank'
                   rel='noreferrer'
                 >
@@ -183,13 +194,18 @@ export default function Contact() {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className='right'>
+          </Widget.Left>
+          <footer>
+            <p>Copyright &copy; 2022 Ridwan Ikhsan</p>
+          </footer>
+          <Widget.Right>
             <div className='email'>
-              <a href='#'>ridwan.ikhsan66@gmail.com</a>
+              <a href='mailto:ridwan.ikhsan66@gmail.com'>
+                ridwan.ikhsan66@gmail.com
+              </a>
             </div>
-          </div>
-        </div>
+          </Widget.Right>
+        </Wrapper>
       </Container>
     </StyledSection>
   );

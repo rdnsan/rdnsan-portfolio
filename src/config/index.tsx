@@ -1,22 +1,33 @@
 export const navLinks = [
   {
     name: 'Home',
-    url: '/',
+    url: '/#',
   },
   {
     name: 'About',
-    url: '/',
-  },
-  {
-    name: 'Experience',
-    url: '/',
+    url: '/#about',
   },
   {
     name: 'Work',
-    url: '/',
+    url: '/#work',
   },
   {
     name: 'Contact',
-    url: '/',
+    url: '/#contact',
+  },
+];
+
+const socialMedia = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/rdnsan',
+  },
+  {
+    name: 'Linked In',
+    url: 'https://www.linkedin.com/in/ridwanikhsan',
+  },
+  {
+    name: 'CodePen',
+    url: 'https://codepen.io/rdnsan',
   },
 ];
