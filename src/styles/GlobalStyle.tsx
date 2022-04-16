@@ -18,10 +18,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--navy);
   }
 
-  :focus {
+  /* :focus {
     outline: 2px dashed var(--blue);
     outline-offset: 3px;
-  }
+  } */
 
   html {
     scrollbar-width: thin;

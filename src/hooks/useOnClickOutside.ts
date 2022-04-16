@@ -1,31 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 
-export default function useOnClickOutside(ref, handler: CallableFunction) {
-  useEffect(
-    () => {
-      const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
+type Event = MouseEvent | TouchEvent;
+type Handler = (event: Event) => void;
 
-        handler(event);
-      };
+function useOnClickOutside<T extends HTMLElement = HTMLElement>(
+  ref: RefObject<T>,
+  handler: Handler
+): void {
+  useEffect(() => {
+    const listener = (event: Event) => {
+      const el = ref?.current;
+      // Do nothing if clicking ref's element or descendent elements
+      if (!el || el.contains(event?.target as Node) || null) {
+        return;
+      }
 
-      document.addEventListener('mousedown', listener);
-      document.addEventListener('touchstart', listener);
+      handler(event); // Call the handler only if the click is outside of the element passed.
+    };
 
-      return () => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
-      };
-    },
-    // Add ref and handler to effect dependencies
-    // It's worth noting that because passed in handler is a new ...
-    // ... function on every render that will cause this effect ...
-    // ... callback/cleanup to run every render. It's not a big deal ...
-    // ... but to optimize you can wrap handler in useCallback before ...
-    // ... passing it into this hook.
-    [ref, handler]
-  );
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
+
+    return () => {
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
+  }, [ref, handler]); // Reload only if ref or handler changes
 }
+
+export default useOnClickOutside;

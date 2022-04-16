@@ -88,6 +88,10 @@ const mixins = {
         /* font-size: var(--fs-xs);
         line-height: 12px; */
       }
+
+      @media (max-width: 569px) {
+        padding-left: 20px;
+      }
     }
   `,
 };

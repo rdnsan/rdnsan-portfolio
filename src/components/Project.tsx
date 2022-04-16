@@ -8,8 +8,20 @@ const StyledSection = styled.section`
 
   .title-wrap {
     margin-left: 3.75rem;
-    @media screen and (max-width: 375px) {
-      margin-left: 1rem;
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+      margin-left: 0.75rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-left: 0.75rem;
+    }
+
+    @media screen and (max-width: 569px) {
+      margin-left: 0;
+      & > div {
+        justify-content: center;
+      }
     }
   }
 
@@ -17,8 +29,9 @@ const StyledSection = styled.section`
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 24px;
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 569px) {
       font-size: 28px;
+      text-align: center;
     }
   }
 `;
@@ -30,6 +43,14 @@ const GridContainer = styled.div`
   max-width: 1200px;
   margin: auto;
   padding: 0 0.75rem;
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  }
 `;
 
 export default function Project(): JSX.Element {

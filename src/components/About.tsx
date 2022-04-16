@@ -1,24 +1,36 @@
 import styled from 'styled-components';
 import { Container, TextLine } from '@styles';
 import Image from 'next/image';
-import techStack from '../../public/tech-stack.png';
+import techStack from '../../public/images/tech-stack.png';
 
 const StyledSection = styled.section`
   width: 100%;
 
   .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
     gap: 48px;
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+      gap: 32px;
+    }
+
     @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+      flex-direction: column;
     }
   }
 
   .col {
     padding: 0 2rem;
     text-align: center;
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 569px) {
+      padding: 0 12px;
+    }
   }
 
   .about {
@@ -38,7 +50,7 @@ const StyledSection = styled.section`
   }
 `;
 
-export default function About() {
+export default function About(): JSX.Element {
   return (
     <StyledSection id='about'>
       <Container>

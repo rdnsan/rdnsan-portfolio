@@ -17,13 +17,13 @@ export const navLinks = [
   },
 ];
 
-const socialMedia = [
+export const socialMedia = [
   {
     name: 'GitHub',
     url: 'https://github.com/rdnsan',
   },
   {
-    name: 'Linked In',
+    name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/ridwanikhsan',
   },
   {

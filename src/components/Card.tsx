@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Image from 'next/image';
-import { IconGithub, IconExternalLink } from './icons';
+import Image, { StaticImageData } from 'next/image';
+import { Icon } from '@components/icons';
 
 const StyledCard = styled.div`
   position: relative;
@@ -14,10 +14,22 @@ const StyledCard = styled.div`
 
 const CardHeader = styled.div`
   position: relative;
-  height: 220px;
+  height: 260px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   overflow: hidden;
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    height: 200px;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 240px;
+  }
+
+  @media screen and (max-width: 320px) {
+    height: 190px;
+  }
 
   .card-img {
     background-color: var(--white);
@@ -31,6 +43,14 @@ const CardBody = styled.div`
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 
+  @media (min-width: 992px) and (max-width: 1200px) {
+    padding: 14px;
+  }
+
+  @media screen and (max-width: 569px) {
+    padding: 0.75rem 1rem;
+  }
+
   h3 {
     font-size: 20px;
     font-weight: 600;
@@ -41,6 +61,15 @@ const CardBody = styled.div`
     color: var(--dark-slate);
     line-height: 1.5;
     margin: 12px 0;
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+      font-size: var(--fs-sm);
+      margin: 8px 0;
+    }
+
+    @media screen and (max-width: 569px) {
+      margin: 8px 0;
+    }
   }
 `;
 
@@ -50,6 +79,10 @@ const CardFooter = styled.div`
   background-color: #f7f7f7;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    padding: 14px;
+  }
 
   p {
     color: var(--dark-slate);
@@ -65,9 +98,23 @@ const Wrapper = styled.div`
   .stack {
     display: flex;
     list-style: none;
+
     li {
       color: var(--navy);
       margin-right: 16px;
+
+      @media (min-width: 992px) and (max-width: 1200px) {
+        font-size: 14px;
+        margin-right: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        margin-right: 10px;
+      }
+
+      @media screen and (max-width: 569px) {
+        font-size: var(--fs-sm);
+      }
     }
   }
 
@@ -86,6 +133,14 @@ const Wrapper = styled.div`
       &:focus {
         color: var(--blue);
         transform: translateY(-3px);
+      }
+
+      @media (min-width: 992px) and (max-width: 1200px) {
+        margin: 0;
+      }
+
+      @media screen and (max-width: 320px) {
+        margin: 0;
       }
 
       svg {
@@ -110,15 +165,15 @@ interface CardProps {
 
 function Card({ image, title, description, tools, source, link }: CardProps) {
   const Target = link.target ? (
-    <a href={link.target}>
-      <IconExternalLink />
+    <a href={link.target} target='_blank' rel='noreferrer'>
+      <Icon name='Link' />
     </a>
   ) : null;
 
   const Source =
     source === 'open' ? (
-      <a href={link.source}>
-        <IconGithub />
+      <a href={link.source} target='_blank' rel='noreferrer'>
+        <Icon name='GitHub' />
       </a>
     ) : null;
 
@@ -128,8 +183,6 @@ function Card({ image, title, description, tools, source, link }: CardProps) {
         <Image
           src={image}
           alt={title}
-          // width={275}
-          // height={220}
           className='card-img'
           placeholder='blur'
           layout='responsive'

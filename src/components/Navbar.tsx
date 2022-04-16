@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Container } from '@styles';
 import { navLinks } from '@config';
 import logo from '../../public/logo.png';
+import Menu from './Menu';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -47,7 +48,7 @@ const StyledLink = styled.a`
   ${({ theme }) => theme.mixins.inlineLink}
 `;
 
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   useEffect(() => {
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
@@ -77,7 +78,7 @@ export default function Navbar() {
               </StyledList>
             ))}
           </StyledMenu>
-          {/* menu */}
+          <Menu />
         </StyledNav>
       </Container>
     </StyledHeader>

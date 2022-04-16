@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { Container, TextLine } from '@styles';
-import { IconCodepen, IconGithub, IconLinkedin } from './icons';
+import { socialMedia } from '@config';
+import { Icon } from '@components/icons';
 
 const StyledSection = styled.section`
   width: 100%;
   padding-bottom: 0;
 
+  @media (max-width: 768px) {
+    padding-top: 4rem;
+  }
+
   h2 {
     font-size: 40px;
     font-weight: 600;
     margin: 16px 0;
-    @media screen and (max-width: 375px) {
-      font-size: 36px;
+    @media screen and (max-width: 569px) {
+      font-size: 32px;
       margin: 10px 0;
     }
   }
@@ -20,6 +25,9 @@ const StyledSection = styled.section`
     line-height: 1.5;
     color: var(--dark-slate);
     margin-bottom: 16px;
+    @media screen and (max-width: 569px) {
+      padding: 0 10px;
+    }
   }
 
   footer {
@@ -33,12 +41,13 @@ const Wrapper = styled.div`
   height: 65vh;
   position: relative;
   text-align: center;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+
+  @media screen and (max-width: 320px) {
+    height: 75vh;
+  }
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   display: inline-block;
   font-family: var(--font-sans);
   font-size: var(--fs-lg);
@@ -47,19 +56,55 @@ const Button = styled.button`
   color: var(--white);
   padding: 16px 34px;
   margin-top: 10px;
+  text-decoration: none;
   border: 2px solid transparent;
   border-radius: 0.25rem;
   cursor: pointer;
   transition: box-shadow 0.5s, border 0.2s ease-in;
-  @media (max-width: 569px) {
-    margin-top: 1.25rem;
-    font-size: var(--fs-lg);
-  }
-  @media (max-width: 376px) {
-    font-size: var(--fs-md);
-  }
+
   &:hover {
     box-shadow: 2px 8px 30px -8px #0a192f;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    padding: 12px 24px;
+  }
+
+  @media (max-width: 569px) {
+    font-size: var(--fs-md);
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
+    padding: 12px 24px;
+  }
+`;
+
+const StyledSocialMedia = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin: 0 auto 10px;
+  }
+
+  ul {
+    ${({ theme }) => theme.mixins.flexCenter};
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    a {
+      display: flex;
+      color: var(--navy);
+      padding: 10px;
+      margin: 0 5px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 `;
 
@@ -71,14 +116,18 @@ const Widget = {
     left: 0;
     z-index: 10;
 
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
     .social-media {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 0;
       padding: 0;
+      margin: 0;
       list-style: none;
-      /* position: relative; */
+
       &::after {
         content: '';
         display: block;
@@ -93,6 +142,7 @@ const Widget = {
         color: inherit;
         padding: 10px;
         transition: var(--transition);
+
         &:hover,
         &:focus {
           color: var(--blue);
@@ -110,16 +160,18 @@ const Widget = {
     width: 40px;
     position: absolute;
     bottom: 0;
-    /* left: auto; */
-    /* right: 40px; */
     right: 0;
     z-index: 10;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     .email {
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* margin-top: 90px; */
+
       &::after {
         content: '';
         display: block;
@@ -138,7 +190,8 @@ const Widget = {
         text-decoration: none;
         color: inherit;
         transition: var(--transition);
-        &:hover {
+        &:hover,
+        &:focus {
           color: var(--blue);
           transform: rotate(180deg) translateY(5px);
         }
@@ -147,7 +200,7 @@ const Widget = {
   `,
 };
 
-export default function Contact() {
+export default function Contact(): JSX.Element {
   return (
     <StyledSection id='contact'>
       <Container>
@@ -160,42 +213,42 @@ export default function Contact() {
             Whether you have a question or just want to say hi, I’ll try my best
             to get back to you!
           </p>
-          <Button>Say Hello</Button>
+          <Button href='mailto:ridwan.ikhsan66@gmail.com'>Say Hello</Button>
           <Widget.Left>
             <ul className='social-media'>
-              <li>
-                <a
-                  href='#'
-                  aria-label='Codepen'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <IconCodepen />
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  aria-label='GitHub'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <IconGithub />
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  aria-label='LinkedIn'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <IconLinkedin />
-                </a>
-              </li>
+              {socialMedia &&
+                socialMedia.map(({ url, name }, index) => (
+                  <li key={index}>
+                    <a
+                      href={url}
+                      aria-label={name}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      <Icon name={name} />
+                    </a>
+                  </li>
+                ))}
             </ul>
           </Widget.Left>
           <footer>
+            <StyledSocialMedia>
+              <ul>
+                {socialMedia &&
+                  socialMedia.map(({ url, name }, index) => (
+                    <li key={index}>
+                      <a
+                        href={url}
+                        aria-label={name}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        <Icon name={name} />
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </StyledSocialMedia>
             <p>Copyright &copy; 2022 Ridwan Ikhsan</p>
           </footer>
           <Widget.Right>

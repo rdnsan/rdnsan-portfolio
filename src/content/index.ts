@@ -1,4 +1,10 @@
-import screenshot from '../../public/project.png';
+import { StaticImageData } from 'next/image';
+import blog from '../../public/images/blog.png';
+import waliMurid from '../../public/images/wali-murid.png';
+import hexaverse from '../../public/images/hexaverse.png';
+import libraryBookshelf from '../../public/images/library-bookshelf.png';
+import movieCatalogue from '../../public/images/movie-catalogue.png';
+import healthyCare from '../../public/images/healthy-care.png';
 
 interface IProject {
   image: StaticImageData;
@@ -14,37 +20,26 @@ interface IProject {
 
 export const projects: IProject[] = [
   {
-    image: screenshot,
+    image: blog,
     title: 'My Personal Blog',
     description: 'My personal blog built with Laravel 9, MySQL and Bootstrap.',
     tools: ['Laravel', 'MySQL', 'Bootstrap'],
     source: 'open',
     link: {
-      source: 'https://github.com/rdnsan/rdnsan-blog',
+      source: 'https://github.com/rdnsan/oneyel-blog',
     },
   },
   {
-    image: screenshot,
+    image: waliMurid,
     title: 'Wali Murid',
-    description: 'Fullstack App for student parent built with MERN stack.',
-    tools: ['Next.js', 'Express', 'MongoDB'],
+    description:
+      'an application devoted to guardians of students in monitoring children’s development more exclusively.',
+    tools: ['Next.js', 'TS', 'Express', 'MongoDB'],
     source: 'close',
     link: {},
   },
   {
-    image: screenshot,
-    title: 'Topup Game Online',
-    description:
-      'Fullstack App Topup Voucher Game Online built with MERN stack.',
-    tools: ['Next.js', 'Express', 'MongoDB'],
-    source: 'open',
-    link: {
-      target: 'https://rdnsan-store.herokuapp.com',
-      source: 'https://github.com/rdnsan/store-go',
-    },
-  },
-  {
-    image: screenshot,
+    image: hexaverse,
     title: 'Hexaverse',
     description:
       'Hexaverse Web Company Profile built with GatsbyJS, GraphQL and styled-components.',
@@ -55,7 +50,7 @@ export const projects: IProject[] = [
     },
   },
   {
-    image: screenshot,
+    image: libraryBookshelf,
     title: 'Library Bookshelf',
     description:
       'Progressive Web Apps for manage bookshelf library built with TypeScript + Webpack.',
@@ -67,7 +62,7 @@ export const projects: IProject[] = [
     },
   },
   {
-    image: screenshot,
+    image: movieCatalogue,
     title: 'Movie Catalogue',
     description:
       'Progressive Web Apps for showing list movies, SPA built with Vanilla JavaScript.',
@@ -76,6 +71,17 @@ export const projects: IProject[] = [
     link: {
       target: 'https://movie-catalogue.pages.dev/',
       source: 'https://github.com/rdnsan/movie-catalogue',
+    },
+  },
+  {
+    image: healthyCare,
+    title: 'Healthy Care',
+    description: 'Landing Page Covid-19 Statistic, built with Webpack.',
+    tools: ['JS', 'Webpack', 'Covid19 API'],
+    source: 'open',
+    link: {
+      target: 'https://healthy-care.pages.dev',
+      source: 'https://github.com/rdnsan/healthy-care',
     },
   },
 ];

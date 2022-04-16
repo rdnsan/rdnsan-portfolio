@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import Home from '@pages/index';
+import Hero from '../src/components/Hero';
 
-describe('Home', () => {
+describe('Hero', () => {
   it('renders a heading', () => {
-    render(<Home />);
+    render(<Hero />);
 
     const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
+      name: /ridwan nurul ikhsan/i,
     });
 
     expect(heading).toBeInTheDocument();

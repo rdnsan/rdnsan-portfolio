@@ -6,19 +6,10 @@ const variables = css`
     --white: #f8f8ff;
     --navy: #0a192f;
     --blue: #9ed5f4;
-    --green: #17bbaf;
     --slate: #7d86a1;
     --dark-slate: #525869;
     --light-slate: #a8b2d1;
     --navy-shadow: rgba(2, 12, 27, 0.2);
-
-    --light-navy: #112240;
-
-    /* --slate: #8892b0; */
-    --red: #ed1c24;
-    --lightest-navy: #28508c;
-    --lightest-slate: #ccd6f6;
-    /* --dark-slate: #495670; */
 
     /* Font */
     --font-sans: 'Inter', sans-serif;
