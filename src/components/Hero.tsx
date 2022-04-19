@@ -158,7 +158,7 @@ const Button = styled.button<ButtonProps>`
 
 export default function Hero(): JSX.Element {
   const URL =
-    'https://drive.google.com/file/d/1x-afI5DPlSULUAZN73r64NAH1CR_JJlQ/view?usp=sharing';
+    'https://drive.google.com/file/d/13zG_ZjVv251FHxCkJoOs3ZGQHMcemBPl/view?usp=sharing';
 
   return (
     <StyledHero>
