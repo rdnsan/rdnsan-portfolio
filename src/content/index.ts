@@ -46,7 +46,7 @@ export const projects: IProject[] = [
     tools: ['GatsbyJS', 'styled-components'],
     source: 'close',
     link: {
-      target: 'https://hexaverse.gatsbyjs.io',
+      target: 'https://hexaverse.dev',
     },
   },
   {
